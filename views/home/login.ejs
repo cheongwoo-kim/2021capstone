@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <%- include('../partials/head') %>
+
+    <title>Login</title>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+    
+    <section class="login-form" >
+        <h1>GAMBLE LOGIN</h1>
+        <form action="/login" method="post">
+            <div class="int-area">
+                <input type="text" id="username" name="username" value="<%= username %>"
+                  autocomplete="off" required>
+                <label for="username">ID</label>
+                <% if(errors.username){ %>
+                  <%= errors.username %>
+                <% } %>
+            </div>
+            <div class="int-area">
+                <input type="password" id="password" name="password"
+                 autocomplete="off" required>
+                <label for="id">PASSWORD</label>
+                <% if(errors.password){ %>
+                  <%= errors.password %>
+                <% } %>
+            </div>
+            <div class="btn-area">
+                <button type="submit" >LOGIN</button>
+            </div>
+            <% if(errors.login){ %>
+              <div class="invalid-feedback d-block"><%= errors.login %></div>
+            <% } %>
+            <div class="caption">
+                <a href="">Forgot Password?</a></br>
+                <a href="/users/new">Sign Up</a>
+            </div>
+        </form>
+    </section>
+    
+</body>
+</html>

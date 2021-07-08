@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <section class="login-form">
+      
+      <h1>GAMBLE SIGN UP</h1>
+      <form action="/users" method="post">
+          <div class="int-area">
+            <input type="text" id="username" name="username"
+            value="<%= user.username %>" autocomplete="off" required>
+              <label for="username">Username*</label>
+              <% if(errors.username){ %>
+               <%= errors.username.message %>
+              <% } %>
+          </div>
+          <div class="int-area">
+            <input type="text" name="name" id="name" value="<%= user.name %>"
+             autocomplete="off" required>
+            <label for="name">Name*</label>
+            <% if(errors.name){ %>
+              <%= errors.name.message %>
+            <% } %>
+        </div>
+          <div class="int-area">
+            <input type="text" id="email" name="email"
+            value="<%= user.email %>" autocomplete="off" required>
+              <label for="email">Email</label>
+              <% if(errors.email){ %>
+                <%= errors.email.message %>
+              <% } %>
+          </div>
+          <div class="int-area">
+              <input type="password" name="password" id="password"
+               autocomplete="off" required>
+              <label for="password">Password*</label>
+              <% if(errors.password){ %>
+                <%= errors.password.message %>
+              <% } %>
+          </div>
+          <div class="int-area">
+              <input type="password" name="passwordConfirmation" id="passwordConfirmation"
+               autocomplete="off" required>
+              <label for="passwordConfirmation">Password Confirmation*</label>
+              <% if(errors.passwordConfirmation){ %>
+                <%= errors.passwordConfirmation.message %>
+              <% } %>
+          </div>
+          <p>
+            <br>
+            <small>*Required</small>
+          </p>
+          <% if(errors.unhandled){ %>
+
+              <%= errors.unhandled %>
+            </div>
+          <% } %>
+          <div class="btn-area">
+              <button type="submit">Sign Up</button>
+          </div>
+
+      </form>
+  </section>
+
+  </body>
+</html>
+
+
